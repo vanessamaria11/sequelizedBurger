@@ -1,21 +1,49 @@
-<h1>EAT-DA-BURGER</h1>
+	<div class= "container">
+		<div class= "row">
+			<div class= "container">
+		<div class = "row">
+			<div id= "burgerImg">
+				<img src="../assets/img/burger.png" style="width:15%; height:25%"></img>
+				<br>
+			<h1 id="specialfont">Eat Ze Burger!</h1>
+			</div>
+		</div>
+	</div>
+			{{#each burger}}
+			{{#unless this.devoured}}
+			<div class="col-xs-9 text-center">
+				<pre>{{this.id}}.{{this.burger_name}}</pre>
+		</div>
+				<div class="col-xs-3 text-center">
+					<form method="POST" action="/burgers/update?_method=PUT" class="button-size">
+						<input type="hidden" type="text" name="burger_id" value={{this.id}}>
+						<br>
+						<button type="submit" class="btn btn-default">Devour it!</button>
+					</form>
+				</div>
+				{{/unless}}
+			{{/each}}
+			</div>
+		</div> 
+	<div class="col-xs-6 text-center" class="task">
+		<h3> Devoured burgers </h3>
+		{{#each burger}}
+		{{#if this.devoured}}
+		<input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}">
+		{{/if}}
+		{{/each}}
+	</div>
+</div>
+</div>
 
-<ul>
-  {{#each burgersTable}}
-    <li>
-      <p>
-        {{this.id}}.{{this.burger_name}}
+	<div class="container">
+	<div class="row">
+		<div class="col-xs-offset-4 col-xs-4 col-sm-offset-4 col-sm-4 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4 text-center enter_section">
+			<form action="/burgers/create" method="POST">
+				<input type="text" class="form-control" name="burger_name" value="" id="enter_text" placeholder="Enter a burger you want to eat">
+				<button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
+			</form>
 
-        <form action="/{{this.id}}?_method=DELETE" method="POST">
-          <input type="hidden" name="id" value="{{this.id}}">
-          <button type="submit">Devour!</button>
-        </form>
-      </p>
-    </li>
-  {{/each}}
-</ul>
-
-<form method="POST" action="/" class="button-size">
-	<textarea type="text" name="burger"></textarea>
-	<button type="submit">Add Dis Burger!</button>
-</form>
+		</div>
+	</div>
+</div>

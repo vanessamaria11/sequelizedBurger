@@ -1,4 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Inknut+Antiqua');
+
 body{
 background-color: yellow;
 /*font: 25px;*/
+}
+
+#burgerImg{
+	text-align: center;
+	left-margin: 50%;
+};
+
+#specialfont{
+	font-family: 'Tangerine';
+};
+
+#burgerholder{
+	background-color: yellow;
 }
